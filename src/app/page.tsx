@@ -77,35 +77,36 @@ export default function Home() {
   ];
 
   return (
-    <div className="space-y-8">
-      <div className="flex items-center justify-between">
+    <div className="space-y-[clamp(1.5rem,2.5vw,2rem)]">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2 tracking-tight">
+          <h1 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-white mb-2 tracking-tight">
             {t("dashboard")}
           </h1>
-          <p className="text-gray-400">
+          <p className="text-gray-400 text-[clamp(0.875rem,1vw,1rem)]">
             {t("welcome")}, <span className="text-neon-cyan">CyberStudent</span>
           </p>
         </div>
-        <div className="flex space-x-4">
-          <div className="bg-deep-black border border-neon-cyan/30 rounded-lg p-4 text-center min-w-[120px]">
-            <p className="text-2xl font-bold text-white">12</p>
-            <p className="text-xs text-gray-500 uppercase tracking-wider">{t("activeCourses")}</p>
+        <div className="flex space-x-4 w-full md:w-auto">
+          <div className="bg-deep-black border border-neon-cyan/30 rounded-lg p-[clamp(0.75rem,1vw,1rem)] text-center min-w-0 flex-1 md:flex-none md:min-w-[120px]">
+            <p className="text-[clamp(1.25rem,2vw,1.5rem)] font-bold text-white">12</p>
+            <p className="text-[clamp(0.65rem,0.8vw,0.75rem)] text-gray-500 uppercase tracking-wider truncate">{t("activeCourses")}</p>
           </div>
-          <div className="bg-deep-black border border-neon-magenta/30 rounded-lg p-4 text-center min-w-[120px]">
-            <p className="text-2xl font-bold text-white">85%</p>
-            <p className="text-xs text-gray-500 uppercase tracking-wider">{t("completed")}</p>
+          <div className="bg-deep-black border border-neon-magenta/30 rounded-lg p-[clamp(0.75rem,1vw,1rem)] text-center min-w-0 flex-1 md:flex-none md:min-w-[120px]">
+            <p className="text-[clamp(1.25rem,2vw,1.5rem)] font-bold text-white">85%</p>
+            <p className="text-[clamp(0.65rem,0.8vw,0.75rem)] text-gray-500 uppercase tracking-wider truncate">{t("completed")}</p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[clamp(1rem,2vw,1.5rem)]">
         {courses.map((course, index) => (
           <motion.div
             key={course.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
+            className="flex flex-col min-w-0"
           >
             <CourseCard {...course} />
           </motion.div>

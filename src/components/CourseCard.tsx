@@ -36,7 +36,7 @@ export default function CourseCard({
             whileHover={{ scale: 1.02, y: -5 }}
             whileTap={{ scale: 0.98 }}
             className={cn(
-                "relative group bg-deep-black border rounded-xl overflow-hidden transition-all duration-300",
+                "relative group bg-deep-black border rounded-xl overflow-hidden transition-all duration-300 flex flex-col min-w-0 flex-1",
                 borderColor,
                 "hover:shadow-[0_0_20px_var(--glow-color)]",
                 "active:shadow-[0_0_10px_var(--glow-color)] active:border-opacity-100"
@@ -44,7 +44,7 @@ export default function CourseCard({
             style={{ "--glow-color": glowColor } as React.CSSProperties}
         >
             {/* Image Container */}
-            <div className="relative h-48 w-full overflow-hidden">
+            <div className="relative h-48 w-full overflow-hidden shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-black to-transparent z-10" />
                 {/* Placeholder for image - using a gradient div if no image provided or for effect */}
                 <div className={cn(
@@ -52,9 +52,9 @@ export default function CourseCard({
                     isCyan ? "from-neon-cyan to-blue-900" : "from-neon-magenta to-purple-900"
                 )} />
 
-                <div className="absolute top-3 left-3 z-20">
+                <div className="absolute top-3 left-3 z-20 max-w-[calc(100%-1.5rem)]">
                     <span className={cn(
-                        "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/50 backdrop-blur-md border",
+                        "px-3 py-1 rounded-full text-[clamp(0.65rem,1vw,0.75rem)] font-bold uppercase tracking-wider bg-black/50 backdrop-blur-md border truncate block",
                         borderColor,
                         textColor
                     )}>
@@ -64,25 +64,25 @@ export default function CourseCard({
             </div>
 
             {/* Content */}
-            <div className="p-5 relative z-20 -mt-10">
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-neon-cyan transition-colors line-clamp-1">
+            <div className="p-[clamp(1rem,1.5vw,1.25rem)] relative z-20 -mt-10 flex flex-col flex-1">
+                <h3 className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-white mb-1 group-hover:text-neon-cyan transition-colors line-clamp-1">
                     {title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">{instructor}</p>
+                <p className="text-gray-400 text-[clamp(0.75rem,1vw,0.875rem)] mb-4 truncate">{instructor}</p>
 
-                <div className="flex items-center justify-between text-xs text-gray-500 font-mono">
-                    <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-between text-[clamp(0.65rem,1vw,0.75rem)] text-gray-500 font-mono mt-auto">
+                    <div className="flex items-center space-x-[clamp(0.5rem,1vw,1rem)]">
                         <div className="flex items-center space-x-1">
-                            <Star size={14} className="text-yellow-400 fill-yellow-400" />
+                            <Star size={14} className="text-yellow-400 fill-yellow-400 shrink-0" />
                             <span>{rating}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                            <Users size={14} />
+                            <Users size={14} className="shrink-0" />
                             <span>{students}</span>
                         </div>
                     </div>
                     <div className="flex items-center space-x-1">
-                        <Clock size={14} />
+                        <Clock size={14} className="shrink-0" />
                         <span>{duration}</span>
                     </div>
                 </div>

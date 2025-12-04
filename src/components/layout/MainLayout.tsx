@@ -26,7 +26,7 @@ export default function MainLayout({
                     <TopBar />
 
                     {/* Main Content - Add bottom padding for mobile nav */}
-                    <main className="flex-1 overflow-y-auto p-4 lg:p-8 relative z-10 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pb-20 md:pb-6">
+                    <main className="flex-1 overflow-y-auto p-[clamp(1rem,3vw,2rem)] relative z-10 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pb-20 md:pb-6">
                         <PageTransition>{children}</PageTransition>
                     </main>
 
