@@ -34,10 +34,12 @@ export default function CourseCard({
     return (
         <motion.div
             whileHover={{ scale: 1.02, y: -5 }}
+            whileTap={{ scale: 0.98 }}
             className={cn(
                 "relative group bg-deep-black border rounded-xl overflow-hidden transition-all duration-300",
                 borderColor,
-                "hover:shadow-[0_0_20px_var(--glow-color)]"
+                "hover:shadow-[0_0_20px_var(--glow-color)]",
+                "active:shadow-[0_0_10px_var(--glow-color)] active:border-opacity-100"
             )}
             style={{ "--glow-color": glowColor } as React.CSSProperties}
         >
